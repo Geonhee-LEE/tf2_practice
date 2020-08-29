@@ -1,0 +1,15 @@
+  <launch>
+    
+    <node pkg="map_tf" type="frame_tf2_broadcaster"
+          name="tf_broadcaster">
+	  <param name="x1"  value="1.0" />
+	  <param name="y1"  value="2.0" />
+	  <param name="x2"  value="3.0" />
+	  <param name="y2"  value="4.0" />
+	  <param name="x3"  value="5.0" />
+	  <param name="y3"  value="6.0" />
+	  <param name="x4"  value="7.0" />
+	  <param name="y4"  value="8.0" />
+    </node>
+
+  </launch>
