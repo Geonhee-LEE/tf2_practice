@@ -9,6 +9,7 @@ int main(int argc, char** argv){
   ros::NodeHandle nh("~");
 
 int x1, x2, x3, x4, y1, y2, y3, y4;
+float yaw1, yaw2, yaw3, yaw4;
 geometry_msgs::TransformStamped transformStamped;
 geometry_msgs::TransformStamped transformStamped2;
 geometry_msgs::TransformStamped transformStamped3;
@@ -18,14 +19,18 @@ tf2_ros::TransformBroadcaster tfb;
   
   while (nh.ok()){
 
-    nh.getParam("x1", x1) ; 
+nh.getParam("x1", x1) ; 
 nh.getParam("y1", y1); 
+nh.getParam("yaw1", yaw1); 
 nh.getParam("x2", x2);  
-nh.getParam("y2", y2) ;   
+nh.getParam("y2", y2) ; 
+nh.getParam("yaw2", yaw2);    
 nh.getParam("x3", x3) ;  
 nh.getParam("y3", y3) ; 
+nh.getParam("yaw3", yaw3);  
 nh.getParam("x4", x4) ; 
 nh.getParam("y4", y4);
+nh.getParam("yaw4", yaw4);  
       
     
     transformStamped.header.stamp = ros::Time::now();
@@ -37,7 +42,7 @@ nh.getParam("y4", y4);
   transformStamped.transform.translation.z = 0.0;
   tf2::Quaternion q;
 
-  q.setRPY(0, 0, 0);
+  q.setRPY(0, 0, yaw1);
   transformStamped.transform.rotation.x = q.x();
   transformStamped.transform.rotation.y = q.y();
   transformStamped.transform.rotation.z = q.z();
@@ -51,6 +56,7 @@ nh.getParam("y4", y4);
   transformStamped2.transform.translation.y = y2;
   transformStamped2.transform.translation.z = 0.0;
 
+  q.setRPY(0, 0, yaw2);
   transformStamped2.transform.rotation.x = q.x();
   transformStamped2.transform.rotation.y = q.y();
   transformStamped2.transform.rotation.z = q.z();
@@ -63,7 +69,7 @@ nh.getParam("y4", y4);
   transformStamped3.transform.translation.y = y3;
   transformStamped3.transform.translation.z = 0.0;
 
-  q.setRPY(0, 0, 0);
+  q.setRPY(0, 0, yaw3);
   transformStamped3.transform.rotation.x = q.x();
   transformStamped3.transform.rotation.y = q.y();
   transformStamped3.transform.rotation.z = q.z();
@@ -76,7 +82,7 @@ nh.getParam("y4", y4);
   transformStamped4.transform.translation.y = y4;
   transformStamped4.transform.translation.z = 0.0;
 
-  q.setRPY(0, 0, 0);
+  q.setRPY(0, 0, yaw4);
   transformStamped4.transform.rotation.x = q.x();
   transformStamped4.transform.rotation.y = q.y();
   transformStamped4.transform.rotation.z = q.z();
