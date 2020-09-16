@@ -1,0 +1,22 @@
+<launch>
+
+  <group ns="map1">
+	  <arg name="map_file" default="/home/syscon/pilot_lifelong_mapping/map3/map.yaml"/>
+
+	  <!-- Run the map server -->
+	  <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
+  </group>
+  <group ns="map2">
+	  <arg name="map_file" default="/home/syscon/pilot_lifelong_mapping/map3_do_loop_false/map.yaml"/>
+
+	  <!-- Run the map server -->
+	  <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
+  </group>
+  <group ns="map3">
+	  <arg name="map_file" default="/home/syscon/pilot_lifelong_mapping/map3_do_loop_false_diff_start_pt_v2/map.yaml"/>
+
+	  <!-- Run the map server -->
+	  <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
+  </group>
+
+</launch>
